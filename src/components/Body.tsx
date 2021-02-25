@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledBody } from './Body.styles';
+import { StyledBody, StyledSearchBarSection } from './Body.styles';
 import { SearchBar } from '../common/SearchBar';
 
 export const Body = () => {
@@ -7,7 +7,9 @@ export const Body = () => {
 
     return (
         <StyledBody>
-            <SearchBar placeholder={'Movie name, actor, release year...'} setText={setText} />
+            <StyledSearchBarSection>
+                <SearchBar placeholder={'Movie name, actor, release year...'} setText={setText} />
+            </StyledSearchBarSection>
         </StyledBody>
     );
 };
