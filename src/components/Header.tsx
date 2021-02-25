@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledHeader, StyledBar, StyledLogo, StyledText } from './Header.styles';
+import { StyledHeader, StyledBar, StyledLogo, StyledText, StyledAuth, StyledSignup } from './Header.styles';
 import Camera from '../assets/Camera.svg';
 import { usePageRestClient } from '../pageRestClient';
 
@@ -13,6 +13,11 @@ export const Header = () => {
                     <img src={Camera} />
                     <StyledText>Unsplash API</StyledText>
                 </StyledLogo>
+
+                <StyledAuth>
+                    <StyledText>Sign In</StyledText>
+                    <StyledSignup>Sign Up</StyledSignup>
+                </StyledAuth>
             </StyledBar>
         </StyledHeader>
     );

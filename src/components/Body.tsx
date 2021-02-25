@@ -3,6 +3,8 @@ import { StyledBody, StyledSearchBarSection, StyledGridSection } from './Body.st
 import { SearchBar } from '../common/SearchBar';
 import { usePageRestClient } from '../pageRestClient';
 import { Photo } from '../interfaces';
+import { MasonryPhotos } from './MasonryPhotos';
+import { Slide } from './Slide';
 
 export const Body = () => {
     const restClient = usePageRestClient();
@@ -10,22 +12,18 @@ export const Body = () => {
     const [pictures, setPictures] = useState<Photo[]>([]);
 
     const search = async () => setPictures(await restClient.search(text));
+    const way =
+        'https://images.unsplash.com/photo-1508402476522-c77c2fa4479d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDk3NDR8MHwxfHNlYXJjaHwxfHxzdGFyfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=400';
 
     return (
         <StyledBody>
             <StyledSearchBarSection>
-                <SearchBar placeholder={'Movie name, actor, release year...'} setText={setText} search={search} />
+                <SearchBar placeholder={"Any photos you'd like..."} setText={setText} search={search} />
             </StyledSearchBarSection>
             <StyledGridSection>
                 {pictures ? (
                     <>
-                        {pictures.map((picture) => {
-                            return (
-                                <div key={picture.id}>
-                                    <img src={picture.url} />
-                                </div>
-                            );
-                        })}
+                        <MasonryPhotos pictures={pictures} />
                     </>
                 ) : null}
             </StyledGridSection>

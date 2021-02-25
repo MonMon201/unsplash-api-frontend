@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 160px;
+    height: 130px;
     background: ${colors.black10};
     color: ${colors.white10};
 `;
@@ -15,7 +15,7 @@ export const StyledBar = styled.div`
     display: flex;
     width: 70%;
     justify-content: space-between;
-    margin-top: 36px;
+    margin-top: 16px;
     height: 100px;
 `;
 
@@ -24,9 +24,20 @@ export const StyledLogo = styled(itemContainer)`
 `;
 
 export const StyledText = styled.div`
-    margin-left: 10px;
+    margin-left: 15px;
 `;
 
-export const StyledUpload = styled(itemContainer)`
+export const StyledAuth = styled(itemContainer)`
     font-size: 24px;
+    color: #00b2ff;
+`;
+
+export const StyledSignup = styled(StyledText)`
+    display: flex;
+    width: 120px;
+    height: 35px;
+    border: 1px solid #00b2ff;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
 `;
