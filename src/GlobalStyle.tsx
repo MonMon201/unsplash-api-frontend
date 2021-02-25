@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
   src:   url(${MontserratRegular}) format('truetype');
 }
 body {
-    background: ${colors.grey10};
-    height: 500px;
+    background: ${colors.white10};
 }
 `;
