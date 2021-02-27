@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyledLikeButton } from './LikeButton.styles';
-import BlackHeart from '../assets/BlackHeart.svg';
-import WhiteHeart from '../assets/WhiteHeart.svg';
+import BlackHeart from '../../assets/BlackHeart.svg';
+import WhiteHeart from '../../assets/WhiteHeart.svg';
 
 export const LikeButton = () => {
     const [heart, setHeart] = useState<string>(WhiteHeart);

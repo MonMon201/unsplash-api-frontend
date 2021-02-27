@@ -1,8 +1,7 @@
 import React from 'react';
-import SearchTool from '../assets/SearchTool.svg';
-import { StyledSearchBar } from './SearchBar.styles';
-import { InputText } from './Input.text';
-import { StyledButton } from './Button.styles';
+import SearchTool from '../../assets/SearchTool.svg';
+import { StyledSearchBar, StyledSearchButton } from './SearchBar.styles';
+import { InputQuery } from './Input.query';
 
 interface SearchBarProps {
     placeholder: string;
@@ -13,10 +12,10 @@ interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = ({ placeholder, setText, search }) => {
     return (
         <StyledSearchBar>
-            <StyledButton onClick={search}>
+            <StyledSearchButton onClick={search}>
                 <img src={SearchTool} />
-            </StyledButton>
-            <InputText placeholder={placeholder} setText={setText} />
+            </StyledSearchButton>
+            <InputQuery placeholder={placeholder} setText={setText} />
         </StyledSearchBar>
     );
 };

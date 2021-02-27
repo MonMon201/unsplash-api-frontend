@@ -1,19 +1,12 @@
-import React from 'react';
-import { StyledTextInput } from './Input.text.styles';
+import styled from 'styled-components';
+import { colors } from '../colors';
 
-interface InputTextProps {
-    placeholder: string;
-    setText: (value: string) => void;
-}
-
-export const InputText: React.FC<InputTextProps> = ({ placeholder, setText }) => {
-    return (
-        <StyledTextInput
-            type="text"
-            placeholder={placeholder}
-            onChange={(e) => {
-                setText(e.target.value);
-            }}
-        />
-    );
-};
+export const StyledInputText = styled.input`
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    &::placeholder {
+        color: ${colors.grey10};
+    }
+`;
