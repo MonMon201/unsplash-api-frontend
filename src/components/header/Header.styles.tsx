@@ -28,7 +28,7 @@ export const StyledLogo = styled(itemContainer)`
 `;
 
 export const StyledText = styled.div`
-    margin-left: 15px;
+    margin-left: 10px;
 `;
 
 export const StyledHistory = styled(itemContainer)`

@@ -1,6 +1,6 @@
 import React from 'react';
 import Masonry from 'react-responsive-masonry';
-import { Photo } from '../../interfaces';
+import { Photo } from '../../types/Photo';
 import { Slide } from './Slide';
 
 interface MasonryPhotosProps {

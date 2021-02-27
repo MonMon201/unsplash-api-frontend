@@ -13,6 +13,6 @@ export const StyledSearchBar = styled(itemContainer)`
 `;
 
 export const StyledSearchButton = styled(StyledButton)`
-    width: 7%;
+    width: 8%;
     height: 100%;
 `;

@@ -1,7 +1,7 @@
 'use strict';
 
 import { useContext } from 'react';
-import { Photo } from './interfaces';
+import { Photo } from './types/Photo';
 import { RestClientContext } from './restClient';
 import { User } from './types/User';
 import { SearchQuery } from './types/SearchQuery';

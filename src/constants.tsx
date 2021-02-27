@@ -1,1 +1,7 @@
-export const guest = 'Guest' as const;
+export const constants = {
+    GUEST: 'Guest',
+    defaultUser: {
+        id: '',
+        username: '',
+    },
+} as const;
