@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { colors } from '../../colors';
-import { StyledButton } from '../../common/Button';
+import { colors } from '../../../colors';
+import { StyledButton } from '../../../common/Button';
 
 export const StyledLikeButton = styled(StyledButton)`
     position: absolute;

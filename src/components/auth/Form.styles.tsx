@@ -25,8 +25,8 @@ export const StyledTitleContainer = styled(StyledFormContainer)`
     justify-content: center;
     border-radius: 5px;
     height: 30px;
-    background-color: ${colors.white10};
-    color: ${colors.black10};
+    background-color: ${colors.black10};
+    color: ${colors.white10};
     margin-top: -20px;
 `;
 

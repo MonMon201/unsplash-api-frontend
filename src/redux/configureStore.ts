@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { rootReducer } from './rootReducer';
+import { combinedReducer } from './rootReducer';
 import { Store } from 'redux';
 
 export const getPersisted = () => {
@@ -10,7 +10,7 @@ export const getPersisted = () => {
             key: 'root',
             storage,
         },
-        rootReducer,
+        combinedReducer,
     );
     const store: Store = createStore(persistedReducer);
     const persistor = persistStore(store);

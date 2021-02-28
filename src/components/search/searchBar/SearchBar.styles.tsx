@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { itemContainer } from '../../common/ItemContainer';
-import { colors } from '../../colors';
-import { StyledButton } from '../../common/Button';
+import { itemContainer } from '../../../common/ItemContainer';
+import { colors } from '../../../colors';
+import { StyledButton } from '../../../common/Button';
 
 export const StyledSearchBar = styled(itemContainer)`
     width: 100%;

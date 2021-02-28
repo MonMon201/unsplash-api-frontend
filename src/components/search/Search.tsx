@@ -1,32 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { StyledSearch, StyledSearchBarSection, StyledGridSection } from './Search.styles';
-import { SearchBar } from './SearchBar';
+import { SearchBar } from './searchBar/SearchBar';
 import { usePageRestClient } from '../../pageRestClient';
-import { Photo } from '../../types/Photo';
-import { MasonryPhotos } from './MasonryPhotos';
+import { Galery } from './galery/Galery';
 import { useSelector, useDispatch } from 'react-redux';
-import { UserState } from '../../redux/types/user.state';
+import { RootState } from '../../redux/types/root.state';
 import { useGuest } from '../../utils/useGuest';
-
+import { useSnackbar } from 'react-simple-snackbar';
 interface SearchProps {}
 
 export const Search: React.FC<SearchProps> = () => {
-    const user = useSelector((state: UserState) => state.user);
+    const user = useSelector((state: RootState) => state.user.user);
+    const pictures = useSelector((state: RootState) => state.photo.pictures);
+    const [openSnackbar] = useSnackbar();
     const dispatch = useDispatch();
     const restClient = usePageRestClient(user.id);
     useEffect(() => {
         useGuest(user, dispatch, restClient.guest);
-        console.log(user);
+        dispatch({
+            type: 'UNSET',
+        });
     }, []);
     const [text, setText] = useState<string>('');
-    const [pictures, setPictures] = useState<Photo[]>([]);
 
-    const search = async () =>
-        setPictures(
-            await restClient.search({
+    const search = () => {
+        restClient
+            .search({
                 query: text,
-            }),
-        );
+            })
+            .then((payload) => {
+                dispatch({
+                    type: 'SET',
+                    payload,
+                });
+            })
+            .catch((e) => openSnackbar(`Error: ${e.response.data.message}`));
+    };
 
     return (
         <StyledSearch>
@@ -36,7 +45,7 @@ export const Search: React.FC<SearchProps> = () => {
             <StyledGridSection>
                 {pictures ? (
                     <>
-                        <MasonryPhotos pictures={pictures} />
+                        <Galery pictures={pictures} user={user.id} />
                     </>
                 ) : null}
             </StyledGridSection>

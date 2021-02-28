@@ -6,3 +6,8 @@ export const StyledSlide = styled.div`
         border-radius: 5px;
     }
 `;
+
+export const StyledImage = styled.img`
+    display: block;
+    width: 100%;
+`;

@@ -37,6 +37,10 @@ export const StyledHistory = styled(itemContainer)`
 
 export const StyledAuth = styled(itemContainer)`
     font-size: 24px;
+    & > a {
+        display: flex;
+        align-items: center;
+    }
 `;
 
 export const StyledSignup = styled(StyledText)`

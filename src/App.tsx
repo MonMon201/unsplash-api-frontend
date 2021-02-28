@@ -1,39 +1,43 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import { Header } from './components/header/Header';
-import { StyledBody } from './components/body/Body.styles';
+import { StyledBody } from './components/body/Body';
 import { Search } from './components/search/Search';
 import { Login } from './components/auth/Login';
-import { usePageRestClient } from './pageRestClient';
 import { Signup } from './components/auth/Signup';
 import { useSelector, useDispatch } from 'react-redux';
-import { UserState } from './redux/types/user.state';
+import { RootState } from './redux/types/root.state';
+import { HistoryList } from './components/history/History';
+import { usePageRestClient } from './pageRestClient';
 import { useGuest } from './utils/useGuest';
-import { routes } from './routes';
+import { constants } from './constants';
 
 export const App = () => {
-    const user = useSelector((state: UserState) => state.user);
+    const user = useSelector((state: RootState) => state.user.user);
+
     const dispatch = useDispatch();
     const restClient = usePageRestClient(user.id);
     useEffect(() => {
         useGuest(user, dispatch, restClient.guest);
-        console.log(user);
     }, []);
     return (
         <>
             <GlobalStyle />
-            <Header user={user} />
             <Router>
+                <Header />
                 <StyledBody>
-                    <Route path={routes.search}>
+                    <Route path={constants.routes.search}>
                         <Search />
                     </Route>
-                    <Route path={routes.login}>
+                    <Route path={constants.routes.login}>
                         <Login />
                     </Route>
-                    <Route path={routes.signup}>
+                    <Route path={constants.routes.signup}>
                         <Signup />
+                    </Route>
+                    <Route path={constants.routes.history}>
+                        <HistoryList />
                     </Route>
                 </StyledBody>
             </Router>

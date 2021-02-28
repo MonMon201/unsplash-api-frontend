@@ -1,22 +1,8 @@
-import { UserActionTypes, LOGIN, LOGOUT } from './types/user.actions';
-import { UserState } from './types/user.state';
-import { constants } from '../constants';
+import { combineReducers } from 'redux';
+import { photoReducer } from './reducers/photos.reducer';
+import { userReducer } from './reducers/user.reducer';
 
-const initialState: UserState = {
-    user: constants.defaultUser,
-};
-
-export const rootReducer = (state: UserState = initialState, action: UserActionTypes): UserState => {
-    switch (action.type) {
-        case LOGIN:
-            return {
-                user: (state.user = action.payload),
-            };
-        case LOGOUT:
-            return {
-                user: (state.user = initialState.user),
-            };
-        default:
-            return state;
-    }
-};
+export const combinedReducer = combineReducers({
+    user: userReducer,
+    photo: photoReducer,
+});

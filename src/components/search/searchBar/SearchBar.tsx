@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchTool from '../../assets/SearchTool.svg';
+import SearchTool from '../../../assets/SearchTool.svg';
 import { StyledSearchBar, StyledSearchButton } from './SearchBar.styles';
 import { InputQuery } from './Input.query';
 
