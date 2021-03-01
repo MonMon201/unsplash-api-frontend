@@ -1,3 +1,7 @@
+## Attention!
+
+### Very important to run backend first, because if not - front-end won't get initial data (guest account) needed.
+
 ## Description
 
 With this application you can:
