@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = () => {
             <StyledHeader>
                 <StyledBar>
                     <StyledLogo>
-                        <Link href={constants.routes.search}>
+                        <Link href={constants.routes.default}>
                             <img src={Camera} />
                             <StyledText>Go photos</StyledText>
                         </Link>
@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = () => {
                         </StyledAuth>
                     ) : (
                         <StyledAuth>
-                            <Link href={constants.routes.search} onClick={logout}>
+                            <Link href={constants.routes.default} onClick={logout}>
                                 <img src={Exit} />
                                 <StyledText>Logout</StyledText>
                             </Link>

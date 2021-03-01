@@ -27,7 +27,7 @@ export const App = () => {
             <Router>
                 <Header />
                 <StyledBody>
-                    <Route path={constants.routes.search}>
+                    <Route exact path={constants.routes.default}>
                         <Search />
                     </Route>
                     <Route path={constants.routes.login}>

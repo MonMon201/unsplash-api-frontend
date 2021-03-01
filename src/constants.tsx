@@ -7,7 +7,6 @@ export const constants = {
     routes: {
         signup: '/signup',
         login: '/login',
-        search: '/search',
         history: '/history',
         default: '/',
     },
