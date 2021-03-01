@@ -16,18 +16,10 @@ export const App = () => {
             <Router>
                 <Header />
                 <StyledBody>
-                    <Route exact path={constants.routes.default}>
-                        <Search />
-                    </Route>
-                    <Route path={constants.routes.login}>
-                        <Login />
-                    </Route>
-                    <Route path={constants.routes.signup}>
-                        <Signup />
-                    </Route>
-                    <Route path={constants.routes.history}>
-                        <HistoryList />
-                    </Route>
+                    <Route exact path={constants.routes.default} component={Search} />
+                    <Route path={constants.routes.login} component={Login} />
+                    <Route path={constants.routes.signup} component={Signup} />
+                    <Route path={constants.routes.history} component={HistoryList} />
                 </StyledBody>
             </Router>
         </>

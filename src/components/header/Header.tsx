@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = () => {
         setAuthComp(false);
     };
     useEffect(() => {
-        setAuthComp(user.username === (constants.GUEST || ''));
+        setAuthComp(user.username === constants.GUEST || user.id === constants.defaultUser.id);
     });
     return (
         <>
