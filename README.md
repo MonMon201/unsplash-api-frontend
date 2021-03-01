@@ -1,6 +1,6 @@
-# About
+## Description
 
-This a front-end part of unsplash API application.
+[Unsplash](https://unsplash.com/) Api application. Frontend part.
 
 <br>
 
