@@ -2,11 +2,17 @@
 
 [Unsplash](https://unsplash.com/) Api application. Frontend part.
 
-<br>
+## Installation
 
-To run project:
+```bash
+$ yarn i
+```
 
-### `yarn start`
+## Running the app
+
+```bash
+yarn start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
