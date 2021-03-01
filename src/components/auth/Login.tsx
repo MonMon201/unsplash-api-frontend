@@ -6,6 +6,8 @@ import { RootState } from '../../redux/types/root.state';
 import { useGuest } from '../../utils/useGuest';
 import { usePageRestClient } from '../../pageRestClient';
 import { useSnackbar } from 'react-simple-snackbar';
+import { constants } from '../../constants';
+import { Redirect } from 'react-router';
 
 interface LoginProps {}
 
@@ -14,6 +16,7 @@ export const Login: React.FC<LoginProps> = ({}) => {
     const dispatch = useDispatch();
     const restClient = usePageRestClient(user.id);
     const [username, setUsername] = useState<string>('');
+    const [redirect, setRedirect] = useState<boolean>(false);
     const [openSnackbar] = useSnackbar();
     useEffect(() => {
         useGuest(user, dispatch, restClient.guest);
@@ -28,12 +31,17 @@ export const Login: React.FC<LoginProps> = ({}) => {
                 });
                 setUsername('');
                 openSnackbar(`Success: logged in`);
+                setRedirect(true);
             })
             .catch((e) => openSnackbar(`Error: ${e.response.data.message}`));
     };
     return (
         <StyledAuth>
-            <Form title={'Login'} username={username} setUsername={setUsername} submit={submit} />
+            {redirect ? (
+                <Redirect to={constants.routes.default} />
+            ) : (
+                <Form title={'Login'} username={username} setUsername={setUsername} submit={submit} />
+            )}
         </StyledAuth>
     );
 };
