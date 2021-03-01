@@ -20,13 +20,12 @@ interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = () => {
     const user = useSelector((state: RootState) => state.user.user);
-    const [authComp, setAuthComp] = useState<boolean>(false);
+    const [authComp, setAuthComp] = useState<boolean>(true);
     const dispatch = useDispatch();
     const logout = () => {
         dispatch({
             type: LOGOUT,
         });
-        setAuthComp(false);
     };
     useEffect(() => {
         setAuthComp(user.username === constants.GUEST || user.id === constants.defaultUser.id);
