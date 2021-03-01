@@ -24,10 +24,10 @@ export const usePageRestClient = (userId: string) => {
     return {
         search: (query: SearchQuery): Promise<Photo[]> =>
             restClient.post<Photo[]>(apiEndpoints.SEARCH(userId), query).then((res) => res.data),
-        login: (username: string): Promise<User> =>
-            restClient.post<User>(apiEndpoints.LOGIN(username)).then((res) => res.data),
-        signup: (username: string): Promise<User> =>
-            restClient.post<User>(apiEndpoints.SIGNUP(username)).then((res) => res.data),
+        login: (username: string, query: User): Promise<User> =>
+            restClient.post<User>(apiEndpoints.LOGIN(username), query).then((res) => res.data),
+        signup: (username: string, query: User): Promise<User> =>
+            restClient.post<User>(apiEndpoints.SIGNUP(username), query).then((res) => res.data),
         guest: (): Promise<User> => restClient.post<User>(apiEndpoints.GUEST()).then((res) => res.data),
         history: (): Promise<History[]> =>
             restClient.get<History[]>(apiEndpoints.HISTORY(userId)).then((res) => res.data),

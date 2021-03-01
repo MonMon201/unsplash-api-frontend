@@ -22,7 +22,7 @@ export const HistoryList: React.FC<HistoryListProps> = () => {
             <StyledTable>
                 <StyledTableTitle>{`${user.username}'s History`}</StyledTableTitle>
                 {history.length
-                    ? history.map((historyElement, i) => {
+                    ? history.map((historyElement) => {
                           return (
                               <StyledTableContainer key={historyElement.id}>
                                   {historyElement.query}

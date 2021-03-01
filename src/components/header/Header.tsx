@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useGuest } from '../../utils/useGuest';
 import { constants } from '../../constants';
 import { LOGOUT } from '../../redux/types/user.actions';
-import { User } from '../../types/User';
 import { RootState } from '../../redux/types/root.state';
 
 interface HeaderProps {}

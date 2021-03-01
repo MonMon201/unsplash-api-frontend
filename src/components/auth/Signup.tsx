@@ -20,7 +20,7 @@ export const Signup: React.FC<SignupProps> = ({}) => {
     }, []);
     const submit = () => {
         restClient
-            .signup(username)
+            .signup(username, user)
             .then((data) => {
                 dispatch({
                     type: 'LOGIN',

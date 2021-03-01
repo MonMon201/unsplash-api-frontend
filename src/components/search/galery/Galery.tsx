@@ -1,7 +1,6 @@
 import React from 'react';
 import Masonry from 'react-responsive-masonry';
 import { Photo } from '../../../types/Photo';
-import { User } from '../../../types/User';
 import { GaleryPhoto } from './GaleryPhoto';
 
 interface GaleryProps {

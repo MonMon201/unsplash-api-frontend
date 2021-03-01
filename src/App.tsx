@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import { Header } from './components/header/Header';
 import { StyledBody } from './components/body/Body';
