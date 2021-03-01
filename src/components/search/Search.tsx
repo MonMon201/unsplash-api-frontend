@@ -5,7 +5,6 @@ import { usePageRestClient } from '../../pageRestClient';
 import { Galery } from './galery/Galery';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/types/root.state';
-import { useGuest } from '../../utils/useGuest';
 import { useSnackbar } from 'react-simple-snackbar';
 interface SearchProps {}
 
@@ -16,7 +15,6 @@ export const Search: React.FC<SearchProps> = () => {
     const dispatch = useDispatch();
     const restClient = usePageRestClient(user.id);
     useEffect(() => {
-        useGuest(user, dispatch, restClient.guest);
         dispatch({
             type: 'UNSET',
         });

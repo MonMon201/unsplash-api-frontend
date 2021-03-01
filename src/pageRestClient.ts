@@ -8,6 +8,8 @@ import { History } from './types/History';
 import { SearchQuery } from './types/SearchQuery';
 import { LikeQuery } from './types/LikeQuery';
 import { Like } from './types/Like';
+import { useGuest } from './utils/useGuest';
+import { useDispatch } from 'react-redux';
 
 const apiEndpoints = {
     SEARCH: (userId: string) => `/search/${userId}`,
@@ -19,7 +21,7 @@ const apiEndpoints = {
     DISLIKE: (userId: string) => `/removeLike/${userId}`,
 };
 
-export const usePageRestClient = (userId: string) => {
+const useRestClient = (userId: string) => {
     const restClient = useContext(RestClientContext);
     return {
         search: (query: SearchQuery): Promise<Photo[]> =>
@@ -36,4 +38,11 @@ export const usePageRestClient = (userId: string) => {
         dislike: (query: LikeQuery): Promise<Like> =>
             restClient.post<Like>(apiEndpoints.LIKE(userId), query).then((res) => res.data),
     };
+};
+
+export const usePageRestClient = (userId: string) => {
+    const restClient = useRestClient(userId);
+    const dispatch = useDispatch();
+    useGuest(userId, dispatch, restClient.guest);
+    return restClient;
 };

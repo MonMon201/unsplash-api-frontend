@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyledAuth } from './Auth.styles';
 import { Form } from './Form';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/types/root.state';
-import { useGuest } from '../../utils/useGuest';
 import { usePageRestClient } from '../../pageRestClient';
 import { useSnackbar } from 'react-simple-snackbar';
 import { constants } from '../../constants';
@@ -18,9 +17,6 @@ export const Login: React.FC<LoginProps> = ({}) => {
     const [username, setUsername] = useState<string>('');
     const [redirect, setRedirect] = useState<boolean>(false);
     const [openSnackbar] = useSnackbar();
-    useEffect(() => {
-        useGuest(user, dispatch, restClient.guest);
-    }, []);
     const submit = () => {
         restClient
             .login(username, user)

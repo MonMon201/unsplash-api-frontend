@@ -11,9 +11,7 @@ import {
 import { Link } from '../../common/A';
 import Camera from '../../assets/Camera.svg';
 import Exit from '../../assets/Exit.svg';
-import { usePageRestClient } from '../../pageRestClient';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGuest } from '../../utils/useGuest';
 import { constants } from '../../constants';
 import { LOGOUT } from '../../redux/types/user.actions';
 import { RootState } from '../../redux/types/root.state';
@@ -30,10 +28,6 @@ export const Header: React.FC<HeaderProps> = () => {
         });
         setAuthComp(false);
     };
-    const restClient = usePageRestClient(user.id);
-    useEffect(() => {
-        useGuest(user, dispatch, restClient.guest);
-    }, []);
     useEffect(() => {
         setAuthComp(user.username === (constants.GUEST || ''));
     });

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyledAuth } from './Auth.styles';
 import { Form } from './Form';
 import { usePageRestClient } from '../../pageRestClient';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/types/root.state';
-import { useGuest } from '../../utils/useGuest';
 import { useSnackbar } from 'react-simple-snackbar';
 import { Redirect } from 'react-router';
 import { constants } from '../../constants';
@@ -18,9 +17,6 @@ export const Signup: React.FC<SignupProps> = ({}) => {
     const [username, setUsername] = useState<string>('');
     const [redirect, setRedirect] = useState<boolean>(false);
     const [openSnackbar] = useSnackbar();
-    useEffect(() => {
-        useGuest(user, dispatch, restClient.guest);
-    }, []);
     const submit = () => {
         restClient
             .signup(username, user)
