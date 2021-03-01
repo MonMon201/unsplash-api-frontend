@@ -23,7 +23,7 @@ Features:
 ## Installation
 
 ```bash
-$ yarn i
+$ yarn install
 ```
 
 ## Running the app
