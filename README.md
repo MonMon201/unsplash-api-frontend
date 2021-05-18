@@ -1,7 +1,3 @@
-## Attention!
-
-### Very important to run backend first, because if not - front-end won't get initial data (guest account) needed. In case you did opposite - just simply clear cache from your browser and reload an application (frontend)
-
 ## Description
 
 With this application you can:
